@@ -1,0 +1,324 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f4f4f4;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    position: relative; /* For the background image */
+}
+
+/* Background Image with Opacity */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('rocket-nozzle-bg.jpg'); /* Make sure this path is correct */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.2; /* Adjust opacity as needed (0.0 to 1.0) */
+    z-index: -1; /* Send it behind other content */
+}
+
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7); /* White overlay for better text readability, adjust opacity */
+    z-index: -1;
+}
+
+header {
+    text-align: center;
+    padding: 60px 20px;
+    background: rgba(255, 255, 255, 0.8); /* Slightly transparent white for header */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 1; /* Ensure header is above background */
+}
+
+header h1 {
+    font-size: 3.5em;
+    color: #e74c3c; /* Red from the image */
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.5em;
+    color: #555;
+}
+
+main {
+    padding: 20px;
+    max-width: 960px;
+    margin: 20px auto;
+    background: rgba(255, 255, 255, 0.9); /* Slightly transparent white for main content */
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 1;
+}
+
+section {
+    padding: 40px 0;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 2.5em;
+    color: #e74c3c;
+    margin-bottom: 20px;
+}
+
+section p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #e74c3c;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #c0392b;
+}
+
+/* Roadmap Styling */
+#roadmap {
+    background-color: #f9f9f9;
+    padding: 60px 20px;
+    border-top: 1px solid #eee;
+}
+
+.roadmap-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 20px 0;
+}
+
+.roadmap-container::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #e74c3c;
+    transform: translateX(-50%);
+}
+
+.roadmap-item {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.roadmap-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.roadmap-date {
+    background-color: #e74c3c;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.1em;
+    flex-shrink: 0;
+    margin: 0 20px;
+    position: relative;
+    z-index: 1;
+    align-self: center;
+}
+
+.roadmap-item::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: #e74c3c;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.roadmap-item:nth-child(odd)::before {
+    left: calc(50% - 10px); /* Adjust to align with the line */
+}
+
+.roadmap-item:nth-child(even)::before {
+    left: calc(50% + 10px); /* Adjust to align with the line */
+}
+
+.roadmap-event {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 25px;
+    text-align: left;
+    max-width: 45%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    position: relative;
+    z-index: 1;
+}
+
+.roadmap-item:nth-child(odd) .roadmap-event {
+    margin-right: 20px;
+}
+
+.roadmap-item:nth-child(even) .roadmap-event {
+    margin-left: 20px;
+}
+
+.roadmap-event h3 {
+    color: #e74c3c;
+    margin-top: 0;
+    font-size: 1.4em;
+}
+
+.roadmap-event ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+.roadmap-event ul li {
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.roadmap-event ul li::before {
+    content: '•';
+    color: #e74c3c;
+    font-size: 1.2em;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.join-beta-btn {
+    background-color: #2ecc71;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.join-beta-btn:hover {
+    background-color: #27ae60;
+}
+
+/* Contact Form */
+#contact form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#contact input[type="text"],
+#contact input[type="email"],
+#contact textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+#contact textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+#contact .btn {
+    width: 100%;
+    max-width: 200px;
+}
+
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: #333;
+    color: white;
+    font-size: 0.9em;
+    margin-top: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5em;
+    }
+
+    header p {
+        font-size: 1.2em;
+    }
+
+    .roadmap-container::before {
+        left: 20px; /* Adjust line for smaller screens */
+    }
+
+    .roadmap-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .roadmap-item:nth-child(even) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .roadmap-date {
+        margin: 0 0 15px 0;
+        align-self: flex-start;
+        left: 20px; /* Position date near the line */
+        transform: translateX(-50%);
+    }
+
+    .roadmap-item::before {
+        left: 20px; /* Align circle with the line */
+        transform: translate(-50%, -50%);
+    }
+
+    .roadmap-event {
+        max-width: 100%;
+        margin-left: 40px; /* Push event content over */
+        margin-right: 0;
+    }
+
+    .roadmap-item:nth-child(odd) .roadmap-event {
+        margin-right: 0;
+    }
+
+    .roadmap-item:nth-child(even) .roadmap-event {
+        margin-left: 40px;
+    }
+}
